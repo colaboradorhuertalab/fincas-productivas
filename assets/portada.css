@@ -14,41 +14,62 @@ body{
 }
 main{max-width:980px;margin:0 auto;padding:72px 28px 96px}
 em{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:600;color:var(--lima)}
+[hidden]{display:none!important}
 
-header{margin-bottom:56px}
+.cab{margin-bottom:44px}
 .eyebrow{font-size:14px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lima);margin-bottom:18px}
 h1{font-size:clamp(40px,7vw,68px);font-weight:900;line-height:1;letter-spacing:-.025em}
+h2{font-size:clamp(30px,5vw,46px);font-weight:900;line-height:1;letter-spacing:-.02em}
 .lead{font-size:19px;color:var(--crema-60);margin-top:20px;max-width:56ch}
 
+/* --- selección de modalidad --- */
+.modos{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:40px}
+.modo{
+  display:flex;flex-direction:column;gap:6px;text-decoration:none;color:inherit;
+  background:var(--crema-12);border:2px solid var(--crema-25);border-radius:22px;
+  padding:34px 30px 28px;transition:border-color .2s,background .2s;
+}
+.modo:hover{border-color:var(--lima);background:rgba(201,222,63,.1)}
+.modo:focus-visible{outline:2px solid var(--lima);outline-offset:4px}
+.modo .rotulo{font-size:34px;font-weight:900;letter-spacing:-.02em}
+.modo .lugar{font-size:16px;color:var(--crema-60)}
+.modo .fechas{font-size:14px;color:var(--crema-25)}
+.modo .mini{margin-top:20px;display:block}
+.modo .mini-txt{display:block;font-size:13px;color:var(--crema-60);margin-top:9px}
+.modo .mini-txt b{color:var(--lima)}
+
 /* --- avance --- */
+.volver{display:inline-block;font-size:14px;letter-spacing:.06em;color:var(--crema-60);
+  text-decoration:none;margin-bottom:34px}
+.volver:hover{color:var(--lima)}
+.volver:focus-visible{outline:2px solid var(--lima);outline-offset:3px}
+
 .avance{
   display:flex;gap:32px;align-items:center;flex-wrap:wrap;
   background:var(--crema-12);border:2px solid var(--crema-25);
-  border-radius:20px;padding:28px 32px;margin-bottom:64px;
+  border-radius:20px;padding:28px 32px;margin-bottom:48px;
 }
 .avance .cifra{font-size:64px;font-weight:900;line-height:1;color:var(--lima);letter-spacing:-.03em}
 .avance .pc{font-size:30px;margin-left:2px}
 .avance .detalle{flex:1;min-width:240px}
-.barra{height:8px;border-radius:4px;background:rgba(246,244,234,.14);overflow:hidden}
-.barra i{display:block;height:100%;width:0;background:var(--lima);transition:width .35s ease}
 .avance p{font-size:15px;color:var(--crema-60);margin-top:12px}
-#limpiar{
+.avance p b{color:var(--crema)}
+
+.barra{display:block;height:8px;border-radius:4px;background:rgba(246,244,234,.14);overflow:hidden}
+.barra i{display:block;height:100%;width:0;background:var(--lima);transition:width .35s ease}
+
+.limpiar{
   margin-top:14px;background:none;border:1px solid var(--crema-25);color:var(--crema-60);
   border-radius:8px;padding:7px 14px;font:inherit;font-size:13px;cursor:pointer;
 }
-#limpiar:hover{border-color:var(--coral);color:var(--coral)}
-#limpiar:focus-visible{outline:2px solid var(--lima);outline-offset:3px}
+.limpiar:hover{border-color:var(--coral);color:var(--coral)}
+.limpiar:focus-visible{outline:2px solid var(--lima);outline-offset:3px}
 
-/* --- grupos --- */
-.grupo{margin-bottom:56px}
-.grupo h2{font-size:30px;font-weight:800;letter-spacing:-.01em}
-.lugar{font-size:15px;color:var(--crema-25);margin:6px 0 22px}
+/* --- lista de clases --- */
 .clases{list-style:none}
-
 .clase{
   display:flex;align-items:center;gap:16px;
-  padding:16px 18px;border-radius:14px;
-  border:1px solid transparent;border-bottom:1px solid var(--crema-12);
+  padding:16px 18px;border-radius:14px;border-bottom:1px solid var(--crema-12);
 }
 .clase:hover{background:rgba(246,244,234,.05)}
 .clase.marcada .titulo{color:var(--crema-25);text-decoration:line-through}
@@ -84,10 +105,12 @@ a.ir:focus-visible{outline:2px solid var(--lima);outline-offset:3px}
 a.ir.fuera{border-style:dashed}
 .ir.vacio{color:var(--crema-25)}
 
-footer{border-top:1px solid var(--crema-12);padding-top:24px;font-size:14px;color:var(--crema-25)}
+footer{border-top:1px solid var(--crema-12);margin-top:56px;padding-top:24px;
+  font-size:14px;color:var(--crema-25)}
 
 @media (max-width:640px){
   main{padding:48px 18px 72px}
+  .modos{grid-template-columns:1fr}
   .clase{flex-wrap:wrap;gap:12px}
   .cuerpo{flex:1 1 60%}
   .chip,.ir{margin-left:40px}

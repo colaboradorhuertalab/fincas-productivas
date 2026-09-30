@@ -4,7 +4,8 @@ Presentaciones de las dos modalidades del curso, hechas con el motor `deck-stage
 
 ## Estructura
 
-    index.html              portada con el listado y el avance
+    index.html              portada: se elige modalidad y luego la clase.
+                            El avance se guarda por modalidad en localStorage.
     assets/                 motor y estilos compartidos por todas las clases
       deck.css  deck.js  portada.css  fonts/  img/
     presencial/<clase>/     una carpeta por clase, solo con index.html
@@ -28,4 +29,6 @@ Cada diapositiva tiene direccion propia por hash (`#12`), valida al cargar la pa
 
 - Tipografias: hoy se cargan desde Google Fonts. Poner los woff2 en `assets/fonts/`
   y cambiar el `<link>` por `@font-face` en `deck.css` para que funcione sin internet.
-- Semana 1 sigue en el repositorio anterior, pendiente de migrar.
+- Las dos clases de "El bosque como modelo" (Semana 1 virtual y Dia 1 presencial)
+  siguen en el repositorio fincas-productivas-semana-1 y se enlazan desde aqui.
+  Funcionan bien; migrarlas es opcional.
