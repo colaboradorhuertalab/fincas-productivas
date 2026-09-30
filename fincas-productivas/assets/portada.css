@@ -1,0 +1,95 @@
+/* Portada del curso · sistema visual La Huerta LAB */
+:root{
+  --bosque:#082E27; --bosque-2:#0C3B32;
+  --lima:#C9DE3F; --coral:#E87B58; --crema:#F6F4EA;
+  --crema-60:rgba(246,244,234,.6); --crema-25:rgba(246,244,234,.25);
+  --crema-12:rgba(246,244,234,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bosque);color:var(--crema);
+  font-family:'Archivo',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;line-height:1.4;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+main{max-width:980px;margin:0 auto;padding:72px 28px 96px}
+em{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:600;color:var(--lima)}
+
+header{margin-bottom:56px}
+.eyebrow{font-size:14px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lima);margin-bottom:18px}
+h1{font-size:clamp(40px,7vw,68px);font-weight:900;line-height:1;letter-spacing:-.025em}
+.lead{font-size:19px;color:var(--crema-60);margin-top:20px;max-width:56ch}
+
+/* --- avance --- */
+.avance{
+  display:flex;gap:32px;align-items:center;flex-wrap:wrap;
+  background:var(--crema-12);border:2px solid var(--crema-25);
+  border-radius:20px;padding:28px 32px;margin-bottom:64px;
+}
+.avance .cifra{font-size:64px;font-weight:900;line-height:1;color:var(--lima);letter-spacing:-.03em}
+.avance .pc{font-size:30px;margin-left:2px}
+.avance .detalle{flex:1;min-width:240px}
+.barra{height:8px;border-radius:4px;background:rgba(246,244,234,.14);overflow:hidden}
+.barra i{display:block;height:100%;width:0;background:var(--lima);transition:width .35s ease}
+.avance p{font-size:15px;color:var(--crema-60);margin-top:12px}
+#limpiar{
+  margin-top:14px;background:none;border:1px solid var(--crema-25);color:var(--crema-60);
+  border-radius:8px;padding:7px 14px;font:inherit;font-size:13px;cursor:pointer;
+}
+#limpiar:hover{border-color:var(--coral);color:var(--coral)}
+#limpiar:focus-visible{outline:2px solid var(--lima);outline-offset:3px}
+
+/* --- grupos --- */
+.grupo{margin-bottom:56px}
+.grupo h2{font-size:30px;font-weight:800;letter-spacing:-.01em}
+.lugar{font-size:15px;color:var(--crema-25);margin:6px 0 22px}
+.clases{list-style:none}
+
+.clase{
+  display:flex;align-items:center;gap:16px;
+  padding:16px 18px;border-radius:14px;
+  border:1px solid transparent;border-bottom:1px solid var(--crema-12);
+}
+.clase:hover{background:rgba(246,244,234,.05)}
+.clase.marcada .titulo{color:var(--crema-25);text-decoration:line-through}
+.clase.marcada .sub{color:rgba(246,244,234,.18)}
+
+.tic{
+  appearance:none;-webkit-appearance:none;flex:0 0 auto;
+  width:24px;height:24px;border:2px solid var(--crema-25);border-radius:7px;
+  cursor:pointer;position:relative;background:none;
+}
+.tic:hover{border-color:var(--lima)}
+.tic:checked{background:var(--lima);border-color:var(--lima)}
+.tic:checked::after{
+  content:"";position:absolute;left:7px;top:2px;width:6px;height:12px;
+  border:solid var(--bosque);border-width:0 3px 3px 0;transform:rotate(45deg);
+}
+.tic:focus-visible{outline:2px solid var(--lima);outline-offset:3px}
+
+.cuerpo{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;cursor:pointer}
+.titulo{font-size:17px;font-weight:700}
+.sub{font-size:14px;color:var(--crema-60)}
+
+.chip{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:5px 11px;border-radius:999px;white-space:nowrap;flex:0 0 auto}
+.chip.lista{background:var(--lima);color:var(--bosque)}
+.chip.pendiente{border:1px solid var(--crema-25);color:var(--crema-25)}
+
+.ir{font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap;flex:0 0 auto;
+  padding:8px 16px;border-radius:9px}
+a.ir{background:var(--crema-12);border:1px solid var(--crema-25);color:var(--crema)}
+a.ir:hover{background:var(--lima);border-color:var(--lima);color:var(--bosque)}
+a.ir:focus-visible{outline:2px solid var(--lima);outline-offset:3px}
+a.ir.fuera{border-style:dashed}
+.ir.vacio{color:var(--crema-25)}
+
+footer{border-top:1px solid var(--crema-12);padding-top:24px;font-size:14px;color:var(--crema-25)}
+
+@media (max-width:640px){
+  main{padding:48px 18px 72px}
+  .clase{flex-wrap:wrap;gap:12px}
+  .cuerpo{flex:1 1 60%}
+  .chip,.ir{margin-left:40px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}

@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Curso Fincas Productivas · La Huerta LAB</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/portada.css">
+</head>
+<body>
+<main>
+  <header>
+    <p class="eyebrow">La Huerta LAB · Campo Escuela</p>
+    <h1>Curso Fincas <em>Productivas</em></h1>
+    <p class="lead">Los 7 principios de inmunidad del bosque. Todas las clases de las dos modalidades, en un solo lugar.</p>
+  </header>
+
+  <div class="avance">
+    <div class="cifra"><span id="pct">0</span><span class="pc">%</span></div>
+    <div class="detalle">
+      <div class="barra"><i id="relleno"></i></div>
+      <p><span id="hechas">0</span> de 17 clases marcadas</p>
+      <button id="limpiar" type="button">Reiniciar</button>
+    </div>
+  </div>
+
+    <section class="grupo">
+      <h2>Presencial</h2>
+      <p class="lugar">La Huerta Hotel · 1 al 4 de octubre de 2026</p>
+      <ul class="clases">
+      <li class="clase" data-id="presencial:d1-marco">
+        <input type="checkbox" id="c-presencial:d1-marco" class="tic">
+        <label for="c-presencial:d1-marco" class="cuerpo">
+          <span class="titulo">Día 1 · Marco conceptual</span>
+          <span class="sub">El bosque como modelo y los 5 pilares</span>
+        </label>
+        <span class="chip pendiente">Pendiente</span>
+        <span class="ir vacio">—</span>
+      </li>
+      <li class="clase" data-id="presencial:d1-microclima">
+        <input type="checkbox" id="c-presencial:d1-microclima" class="tic">
+        <label for="c-presencial:d1-microclima" class="cuerpo">
+          <span class="titulo">Día 1 · Principio 1 · Microclima</span>
+          <span class="sub">Siembra tu propio clima</span>
+        </label>
+        <span class="chip lista">Lista</span>
+        <a class="ir" href="presencial/d1-microclima/">Abrir</a>
+      </li>
+      <li class="clase" data-id="presencial:d1-microorg">
+        <input type="checkbox" id="c-presencial:d1-microorg" class="tic">
+        <label for="c-presencial:d1-microorg" class="cuerpo">
+          <span class="titulo">Día 1 · Principio 2 · Microorganismos</span>
+          <span class="sub">Introducción · el bosque es el donante</span>
+        </label>
+        <span class="chip pendiente">Pendiente</span>
+        <span class="ir vacio">—</span>
+      </li>
+      <li class="clase" data-id="presencial:d2-reciclaje">
+        <input type="checkbox" id="c-presencial:d2-reciclaje" class="tic">
+        <label for="c-presencial:d2-reciclaje" class="cuerpo">
+          <span class="titulo">Día 2 · Principio 3 · Reciclaje</span>
+          <span class="sub">No nutrimos plantas: nutrimos suelo</span>
+        </label>
+        <span class="chip pendiente">Pendiente</span>
+        <span class="ir vacio">—</span>
+      </li>
+      <li class="clase" data-id="presencial:d3-diversidad">
+        <input type="checkbox" id="c-presencial:d3-diversidad" class="tic">
+        <label for="c-presencial:d3-diversidad" class="cuerpo">
+          <span class="titulo">Día 3 · Principio 4 · Diversidad</span>
+          <span class="sub">Qué sembrar, cuánto y cada cuándo</span>
+        </label>
+        <span class="chip pendiente">Pendiente</span>
+        <span class="ir vacio">—</span>
+      </li>
+      <li class="clase" data-id="presencial:d3-agua">
+        <input type="checkbox" id="c-presencial:d3-agua" class="tic">
+        <label for="c-presencial:d3-agua" class="cuerpo">
+          <span class="titulo">Día 3 · Principio 5 · Agua</span>
+          <span class="sub">Las plantas beben, no comen</span>
+        </label>
+        <span class="chip pendiente">Pendiente</span>
+        <span class="ir vacio">—</span>
+      </li>
+      <li class="clase" data-id="presencial:d3-energia">
+        <input type="checkbox" id="c-presencial:d3-energia" class="tic">
+        <label for="c-presencial:d3-energia" class="cuerpo">
+          <span class="titulo">Día 3 · Principio 6 · Energía</span>
+          <span class="sub">Cada vuelta de la energía es plata que no sale</span>
+        </label>
+        <span class="chip pendiente">Pendiente</span>
+        <span class="ir vacio">—</span>
+      </li>
+      <li class="clase" data-id="presencial:d4-descanso">
+        <input type="checkbox" id="c-presencial:d4-descanso" class="tic">
+        <label for="c-presencial:d4-descanso" class="cuerpo">
+          <span class="titulo">Día 4 · Principio 7 · Descanso</span>
+          <span class="sub">Parar a tiempo también es producir</span>
+        </label>
+        <span class="chip pendiente">Pendiente</span>
+        <span class="ir vacio">—</span>
+      </li>
+      <li class="clase" data-id="presencial:d4-sintesis">
+        <input type="checkbox" id="c-presencial:d4-sintesis" class="tic">
+        <label for="c-presencial:d4-sintesis" class="cuerpo">
+          <span class="titulo">Día 4 · Síntesis y cierre</span>
+          <span class="sub">Los 7 principios y la ruta de 90 días</span>
+        </label>
+        <span class="chip pendiente">Pendiente</span>
+        <span class="ir vacio">—</span>
+      </li>
+      </ul>
+    </section>
+    <section class="grupo">
+      <h2>Virtual</h2>
+      <p class="lugar">La Huerta LAB en Skool · 30 de septiembre al 18 de noviembre de 2026</p>
+      <ul class="clases">
+      <li class="clase" data-id="virtual:s01">
+        <input type="checkbox" id="c-virtual:s01" class="tic">
+        <label for="c-virtual:s01" class="cuerpo">
+          <span class="titulo">Semana 1 · El bosque como modelo</span>
+          <span class="sub">Marco conceptual y diagnóstico inicial</span>
+        </label>
+        <span class="chip pendiente">Por migrar</span>
+        <a class="ir fuera" href="https://github.com/colaboradorhuertalab/fincas-productivas-semana-1" target="_blank" rel="noopener">Repo anterior</a>
+      </li>
+      <li class="clase" data-id="virtual:s02">
+        <input type="checkbox" id="c-virtual:s02" class="tic">
+        <label for="c-virtual:s02" class="cuerpo">
+          <span class="titulo">Semana 2 · Principio 1 · Microclima</span>
+          <span class="sub">Siembra tu propio clima</span>
+        </label>
+        <span class="chip lista">Lista</span>
+        <a class="ir" href="virtual/s02-microclima/">Abrir</a>
+      </li>
+      <li class="clase" data-id="virtual:s03">
+        <input type="checkbox" id="c-virtual:s03" class="tic">
+        <label for="c-virtual:s03" class="cuerpo">
+          <span class="titulo">Semana 3 · Principio 2 · Microorganismos</span>
+          <span class="sub">El bosque es el donante</span>
+        </label>
+        <span class="chip pendiente">Pendiente</span>
+        <span class="ir vacio">—</span>
+      </li>
+      <li class="clase" data-id="virtual:s04">
+        <input type="checkbox" id="c-virtual:s04" class="tic">
+        <label for="c-virtual:s04" class="cuerpo">
+          <span class="titulo">Semana 4 · Principio 3 · Reciclaje</span>
+          <span class="sub">Nutrimos suelo</span>
+        </label>
+        <span class="chip pendiente">Pendiente</span>
+        <span class="ir vacio">—</span>
+      </li>
+      <li class="clase" data-id="virtual:s05">
+        <input type="checkbox" id="c-virtual:s05" class="tic">
+        <label for="c-virtual:s05" class="cuerpo">
+          <span class="titulo">Semana 5 · Principio 4 · Diversidad</span>
+          <span class="sub">Qué sembrar, cuánto y cada cuándo</span>
+        </label>
+        <span class="chip pendiente">Pendiente</span>
+        <span class="ir vacio">—</span>
+      </li>
+      <li class="clase" data-id="virtual:s06">
+        <input type="checkbox" id="c-virtual:s06" class="tic">
+        <label for="c-virtual:s06" class="cuerpo">
+          <span class="titulo">Semana 6 · Principio 5 · Agua</span>
+          <span class="sub">Las plantas beben, no comen</span>
+        </label>
+        <span class="chip pendiente">Pendiente</span>
+        <span class="ir vacio">—</span>
+      </li>
+      <li class="clase" data-id="virtual:s07">
+        <input type="checkbox" id="c-virtual:s07" class="tic">
+        <label for="c-virtual:s07" class="cuerpo">
+          <span class="titulo">Semana 7 · Principio 6 · Energía</span>
+          <span class="sub">Ciclos cerrados e integración pecuaria</span>
+        </label>
+        <span class="chip pendiente">Pendiente</span>
+        <span class="ir vacio">—</span>
+      </li>
+      <li class="clase" data-id="virtual:s08">
+        <input type="checkbox" id="c-virtual:s08" class="tic">
+        <label for="c-virtual:s08" class="cuerpo">
+          <span class="titulo">Semana 8 · Principio 7 · Descanso</span>
+          <span class="sub">Descanso, integración de diseño y cierre</span>
+        </label>
+        <span class="chip pendiente">Pendiente</span>
+        <span class="ir vacio">—</span>
+      </li>
+      </ul>
+    </section>
+
+  <footer>
+    <p>El avance se guarda solo en este navegador. Si abres la página en otro equipo, empieza en cero.</p>
+  </footer>
+</main>
+
+<script>
+(function(){
+  var LLAVE = 'fincas-productivas:avance';
+  var tics = [].slice.call(document.querySelectorAll('.tic'));
+  var pct = document.getElementById('pct');
+  var hechas = document.getElementById('hechas');
+  var relleno = document.getElementById('relleno');
+
+  function leer(){
+    try { return JSON.parse(localStorage.getItem(LLAVE)) || {}; }
+    catch(e){ return {}; }
+  }
+  function guardar(o){
+    try { localStorage.setItem(LLAVE, JSON.stringify(o)); } catch(e){}
+  }
+  function pintar(){
+    var n = tics.filter(function(t){ return t.checked; }).length;
+    var p = Math.round(n / tics.length * 100);
+    pct.textContent = p;
+    hechas.textContent = n;
+    relleno.style.width = p + '%';
+  }
+
+  var estado = leer();
+  tics.forEach(function(t){
+    var id = t.closest('.clase').dataset.id;
+    t.checked = !!estado[id];
+    t.closest('.clase').classList.toggle('marcada', t.checked);
+    t.addEventListener('change', function(){
+      var e = leer();
+      if (t.checked) e[id] = 1; else delete e[id];
+      guardar(e);
+      t.closest('.clase').classList.toggle('marcada', t.checked);
+      pintar();
+    });
+  });
+  pintar();
+
+  document.getElementById('limpiar').addEventListener('click', function(){
+    if (!confirm('¿Borrar el avance guardado en este navegador?')) return;
+    guardar({});
+    tics.forEach(function(t){ t.checked = false; t.closest('.clase').classList.remove('marcada'); });
+    pintar();
+  });
+})();
+</script>
+</body>
+</html>
