@@ -1,3 +1,0 @@
-Pendiente: poner aqui los woff2 de Archivo (400-900) y Fraunces italica (500-600)
-y cambiar el <link> de Google Fonts por un @font-face en deck.css.
-Mientras tanto las clases necesitan internet para cargar las tipografias.
