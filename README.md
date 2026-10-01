@@ -25,6 +25,13 @@ Flechas, PgUp/PgDn, barra espaciadora, teclas 1 a 9, `R` reinicia, `F` pantalla 
 `Ctrl+P` exporta un PDF de una diapositiva por pagina.
 Cada diapositiva tiene direccion propia por hash (`#12`), valida al cargar la pagina.
 
+## Marca
+
+El logo se carga desde el CDN de La Huerta (https://assets.cdn.filesafe.space/IdRKxMkw62mZx47SMDaS/media/6aa46253f4e2fd8aa0ffbddd.png).
+Si no carga, el `onerror` lo quita y queda solo el texto "La Huerta LAB".
+Para que funcione sin internet: guardar el PNG en `assets/img/logo-lahuertalab.png`
+y cambiar el `src` en `index.html` y en las clases.
+
 ## Pendiente
 
 - Tipografias: hoy se cargan desde Google Fonts. Poner los woff2 en `assets/fonts/`
