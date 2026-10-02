@@ -66,7 +66,8 @@
       this.contador.textContent=(n+1)+' / '+this.slides.length;
       this.barra.style.width=((n+1)/this.slides.length*100)+'%';
       if(!inicial) history.replaceState(null,'','#'+(n+1));
-      document.title=(s.dataset.label||'')+' · Microclima';
+      const tema=this.dataset.tema||'';
+      document.title=(s.dataset.label||'')+(tema?' · '+tema:'');
     }
 
     tecla(e){
