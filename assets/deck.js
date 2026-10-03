@@ -1,53 +1,90 @@
-class DeckStage extends HTMLElement{
-  connectedCallback(){
-    this.slides=[...this.querySelectorAll('section')];
-    this.i=-1;
-    this.slides.forEach((s,j)=>{
-      const d=s.querySelector('.d');
-      if(d&&!d.querySelector('.nn')){
-        const n=document.createElement('i');
-        n.className='nn';n.textContent=String(j+1).padStart(2,'0');
-        d.appendChild(n);
-      }
-    });
-    const t=document.getElementById('t'); if(t)t.textContent=this.slides.length;
-    this.fit=this.fit.bind(this);
-    addEventListener('resize',this.fit);
-    this.fit();
-    const h=parseInt((location.hash||'').slice(1),10);
-    this.go(Number.isFinite(h)&&h>0?h-1:0);
-    addEventListener('keydown',e=>{
-      if(e.metaKey||e.ctrlKey||e.altKey)return;
+(function(){
+  class DeckStage extends HTMLElement{
+    connectedCallback(){
+      // mover las secciones a un escenario de tamaño fijo
+      const escenario=document.createElement('div');
+      escenario.className='escenario';
+      while(this.firstElementChild) escenario.appendChild(this.firstElementChild);
+      this.appendChild(escenario);
+
+      this.slides=[...escenario.querySelectorAll('section')];
+      this.i=0;
+
+      // chrome
+      this.contador=document.createElement('div');
+      this.contador.className='chrome contador';
+      document.body.appendChild(this.contador);
+
+      this.barra=document.createElement('div');
+      this.barra.className='barra';
+      document.body.appendChild(this.barra);
+
+      this.btn=document.createElement('button');
+      this.btn.className='chrome btn';
+      this.btn.type='button';
+      this.btn.textContent='Pantalla completa';
+      this.btn.addEventListener('click',()=>this.pantallaCompleta());
+      document.body.appendChild(this.btn);
+
+      // escala
+      this.escalar();
+      addEventListener('resize',()=>this.escalar());
+
+      // teclado
+      addEventListener('keydown',e=>this.tecla(e));
+
+      // arrastre táctil
+      let x0=null;
+      addEventListener('touchstart',e=>{x0=e.changedTouches[0].clientX},{passive:true});
+      addEventListener('touchend',e=>{
+        if(x0===null)return;
+        const dx=e.changedTouches[0].clientX-x0;
+        if(Math.abs(dx)>60){ dx<0 ? this.ir(this.i+1) : this.ir(this.i-1); }
+        x0=null;
+      },{passive:true});
+
+      // dirección por hash, solo al cargar
+      const h=parseInt(location.hash.replace('#',''),10);
+      this.ir(Number.isFinite(h)&&h>0 ? h-1 : 0, true);
+    }
+
+    escalar(){
+      const s=Math.min(innerWidth/1920, innerHeight/1080);
+      this.style.setProperty('--s',s);
+    }
+
+    ir(n,inicial){
+      if(n<0||n>=this.slides.length) return;
+      this.slides.forEach(s=>s.classList.remove('activa'));
+      this.i=n;
+      const s=this.slides[n];
+      s.classList.add('activa');
+      // reiniciar animaciones
+      s.querySelectorAll('[data-anim]').forEach(el=>{
+        el.style.animation='none'; void el.offsetWidth; el.style.animation='';
+      });
+      this.contador.textContent=(n+1)+' / '+this.slides.length;
+      this.barra.style.width=((n+1)/this.slides.length*100)+'%';
+      if(!inicial) history.replaceState(null,'','#'+(n+1));
+      const tema=this.dataset.tema||'';
+      document.title=(s.dataset.label||'')+(tema?' · '+tema:'');
+    }
+
+    tecla(e){
       const k=e.key;
-      if(k==='ArrowRight'||k==='ArrowDown'||k==='PageDown'||k===' '){e.preventDefault();this.go(this.i+1)}
-      else if(k==='ArrowLeft'||k==='ArrowUp'||k==='PageUp'){e.preventDefault();this.go(this.i-1)}
-      else if(k==='Home'){this.go(0)}
-      else if(k==='End'){this.go(this.slides.length-1)}
-      else if(k==='r'||k==='R'){this.go(0)}
-      else if(/^[1-9]$/.test(k)){this.go(parseInt(k,10)-1)}
-      else if(k==='f'||k==='F'){this.pantalla()}
-    });
-    this.addEventListener('click',e=>{if(!e.target.closest('a,button'))this.go(this.i+1)});
-    const fs=document.getElementById('fs');
-    if(fs)fs.addEventListener('click',e=>{e.stopPropagation();this.pantalla()});
+      if(k==='ArrowRight'||k==='ArrowDown'||k==='PageDown'||k===' '){e.preventDefault();this.ir(this.i+1)}
+      else if(k==='ArrowLeft'||k==='ArrowUp'||k==='PageUp'){e.preventDefault();this.ir(this.i-1)}
+      else if(k==='Home'){e.preventDefault();this.ir(0)}
+      else if(k==='End'){e.preventDefault();this.ir(this.slides.length-1)}
+      else if(k==='r'||k==='R'){this.ir(0)}
+      else if(k==='f'||k==='F'){this.pantallaCompleta()}
+      else if(/^[1-9]$/.test(k)){this.ir(parseInt(k,10)-1)}
+    }
+
+    pantallaCompleta(){
+      if(document.fullscreenElement) document.exitFullscreen();
+      else document.documentElement.requestFullscreen();
+    }
   }
-  pantalla(){
-    if(document.fullscreenElement)document.exitFullscreen();
-    else document.documentElement.requestFullscreen();
-  }
-  fit(){
-    this.style.setProperty('--s',Math.min(innerWidth/1920,innerHeight/1080));
-  }
-  go(n){
-    n=Math.max(0,Math.min(this.slides.length-1,n));
-    if(n===this.i)return;
-    this.slides.forEach((s,j)=>s.classList.toggle('on',j===n));
-    this.i=n;
-    const el=id=>document.getElementById(id);
-    if(el('n'))el('n').textContent=n+1;
-    if(el('lbl'))el('lbl').textContent=this.slides[n].dataset.label||'';
-    if(el('pb'))el('pb').style.width=((n+1)/this.slides.length*100)+'%';
-  }
-}
-customElements.define('deck-stage',DeckStage);
-addEventListener('beforeprint',()=>document.querySelectorAll('deck-stage section').forEach(s=>s.classList.add('on')));
+  customElements.define('deck-stage',DeckStage);
+})();
